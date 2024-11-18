@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:toilet_tales/core/widgets/custom_button.dart';
 import 'package:toilet_tales/core/widgets/custom_gear_icon.dart';
+import 'package:toilet_tales/core/widgets/custom_coin_display.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -12,17 +13,20 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            // Ícone de Configuração no canto superior direito
+            // Ícone de Configuração e Moeda no canto superior
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CustomGearIcon(
                     onTap: () {
                       // Navegar para a tela de configurações
                       Navigator.pushNamed(context, '/settings');
                     },
+                  ),
+                  const CustomCoinDisplay(
+                    money: 10, // Exibe 10 moedas
                   ),
                 ],
               ),
@@ -36,17 +40,37 @@ class HomeScreen extends StatelessWidget {
                   Text(
                     'Toilet',
                     style: TextStyle(
-                      fontSize: 36,
+                      fontSize: 64,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black,
+                      color: Colors.white, // Texto branco
+                      shadows: [
+                        Shadow(
+                          color: Colors.black, // Contorno preto
+                          offset:
+                              Offset(-1.5, -1.5), // Sombra para cima/esquerda
+                        ),
+                        Shadow(
+                          color: Colors.black, // Contorno preto
+                          offset: Offset(1.5, -1.5), // Sombra para cima/direita
+                        ),
+                        Shadow(
+                          color: Colors.black, // Contorno preto
+                          offset: Offset(1.5, 1.5), // Sombra para baixo/direita
+                        ),
+                        Shadow(
+                          color: Colors.black, // Contorno preto
+                          offset:
+                              Offset(-1.5, 1.5), // Sombra para baixo/esquerda
+                        ),
+                      ],
                     ),
                   ),
                   Text(
                     'Tales',
                     style: TextStyle(
-                      fontSize: 36,
+                      fontSize: 54,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black,
+                      color: Color.fromARGB(255, 255, 166, 0),
                     ),
                   ),
                 ],
@@ -58,7 +82,7 @@ class HomeScreen extends StatelessWidget {
               children: [
                 const SizedBox(height: 32), // Espaço entre o texto e o botão
                 CustomButton(
-                  text: 'Play',
+                  text: 'PLAY',
                   onPressed: () {
                     // Navegar para a seleção de mini-jogos
                     Navigator.pushNamed(context, '/minigames');
@@ -73,75 +97,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-// import 'package:flutter/material.dart';
-// import 'package:toilet_tales/core/widgets/custom_button.dart';
-// import 'package:toilet_tales/core/widgets/custom_gear_icon.dart';
-
-// class HomeScreen extends StatelessWidget {
-//   const HomeScreen({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       backgroundColor: Colors.white, // Fundo branco
-//       body: SafeArea(
-//         child: Column(
-//           children: [
-//             // Ícone de Configuração no canto superior direito
-//             Padding(
-//               padding: const EdgeInsets.all(16.0),
-//               child: Row(
-//                 mainAxisAlignment: MainAxisAlignment.start,
-//                 children: [
-//                   CustomGearIcon(
-//                     onTap: () {
-//                       // Navegar para a tela de configurações
-//                       Navigator.pushNamed(context, '/settings');
-//                     },
-//                   ),
-//                 ],
-//               ),
-//             ),
-
-//             // Texto centralizado 'Toilet Tales'
-//             Expanded(
-//               child: Column(
-//                 mainAxisAlignment: MainAxisAlignment.start,
-//                 children: [
-//                   Text(
-//                     'Toilet',
-//                     style: Theme.of(context).textTheme.displayLarge?.copyWith(
-//                           color: Colors.black,
-//                         ), // Usa a fonte padrão com ajustes de cor
-//                   ),
-//                   Text(
-//                     'Tales',
-//                     style: Theme.of(context).textTheme.displayLarge?.copyWith(
-//                           color: Colors.black,
-//                         ), // Usa a fonte padrão com ajustes de cor
-//                   ),
-//                 ],
-//               ),
-//             ),
-
-//             // Botão 'Play'
-//             Column(
-//               children: [
-//                 const SizedBox(height: 32), // Espaço entre o texto e o botão
-//                 CustomButton(
-//                   text: 'Play',
-//                   onPressed: () {
-//                     // Navegar para a seleção de mini-jogos
-//                     Navigator.pushNamed(context, '/minigames');
-//                   },
-//                 ),
-//                 const SizedBox(height: 64),
-//               ],
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }

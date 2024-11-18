@@ -18,17 +18,20 @@ class CustomButton extends StatelessWidget {
         backgroundColor:
             const Color.fromARGB(255, 255, 196, 0), // Fundo amarelo
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30), // Cantos arredondados
+          borderRadius: BorderRadius.circular(10), // Cantos arredondados
         ),
-        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
         shadowColor: Colors.black.withOpacity(0.9), // Cor da sombra
         elevation: 10, // Intensidade da sombra
+        padding: const EdgeInsets.symmetric(
+          vertical: 5, // Padding vertical ajustável
+          horizontal: 36, // Padding horizontal fixo
+        ),
       ),
       child: Text(
         text,
         style: TextStyle(
           color: Colors.white, // Texto em branco
-          fontSize: 18,
+          fontSize: 34, // Aumenta o tamanho do texto
           fontWeight: FontWeight.bold,
           shadows: [
             Shadow(
