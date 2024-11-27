@@ -55,6 +55,9 @@ flutter:
     - assets/images/cocometro/sad_toilet.png
     - assets/images/cocometro/sad_body.png
     - assets/images/cocometro/sad_face.png
+    - assets/images/cocometro/excited_toilet.png
+    - assets/images/cocometro/excited_body.png
+    - assets/images/cocometro/excited_face.png
   fonts:
     - family: CartoonFont
       fonts:
